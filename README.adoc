@@ -1,12 +1,15 @@
 = Geographical Names Creation & Maintenance Standard
 
-_This proposed standard is based on the draft https://icsm-au.github.io/addr-creation-maintenance/doc.html[Australian Addressing Creation & Maintenance Standard] with which it will be aligned and cross-referenced._
+This (proposed) standard codifies roles and tasks involved in the creation and maintenance of Geographical Names in Australia and New Zealand under the authority of the https://www.icsm.gov.au/[Intergovernmental Committee on Surveying & Mapping].
 
-_This proposed standard will be dependent on the https://linked.data.gov.au/def/gn[Geographical Names Model] when it's approved as a standard, much like the_ Addressing Creation & Maintenance Standard _is dependent on the https://linked.data.gov.au/def/addr[Address Model]._
+_This standard is dependent on the (proposed) https://linked.data.gov.au/def/gn[Geographical Names Model]._
 
-This proposed standard is rendered on, as it is being developed, at:
+_This proposed standard is based on the draft https://linked.data.gov.au/def/addr-cm[Addressing Creation & Maintenance Standard] with which it will be aligned and cross-referenced._
 
-* https://linked.data.gov.au/def/gn-cm
+This repository contains the source code for the standard and the standard document is rendered from these files online at:
+
+*  https://linked.data.gov.au/def/gn-cm
+
 
 == Contributions
 
@@ -14,7 +17,7 @@ We encourage all contributions to this Standard!
 
 Please contribute by:
 
-. Raising concerns/ideas within ICSM's Address Working Group
+. Raising concerns/ideas within ICSM's Geographical Names Working Group
 . Creating Issue tickets within this repository's Issue Tracker
 .. at https://github.com/Spatial-Information-QLD/addr-creation-maintenance/issues
 . Creating Pull Requests to absorb changes against the document source files
@@ -22,6 +25,7 @@ Please contribute by:
 .. Pull Requests should be lodged at https://github.com/Spatial-Information-QLD/addr-creation-maintenance/pulls
 
 _If creating Pull Requests is a new/unknown thing for you, please communicate with the contacts below for help._
+
 
 == Rights and License
 
@@ -51,3 +55,12 @@ For technical model implementation questions, contact:
 https://kurrawong.ai[KurrawongAI] +
 nick@kurrawong.ai +
 _Contractor to Spatial Information Qld._
+
+
+== Document generation
+
+This document is developed using the https://asciidoc.org/[ASCIIDOC] document system used for many https://www.ogc.org/[OGC] and https://www.iso.org/home.html[ISO] standards. It essentially builds HTML or PDF documents from a series of text files (ending in `.adoc`), images and so, with certain styling conventions.
+
+This repository automatically builds this document from the source files in the `document/` folder using the https://asciidoctor.org/[ASCIIDoctor] tool that it integrated into a GitHub Action, meaning the document is rebuild with every error-free update to the source files here.
+
+The auto-built document is online at https://icsm-au.github.io/addr-creation-maintenance/doc.html.
