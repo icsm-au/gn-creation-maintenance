@@ -38,7 +38,7 @@ For more information about these vocabularies, contact:
 GeoResources Division +
 Department of Natural Resources and Mines, Manufacturing, and Regional and Rural Development +
 Queensland Government +
-QldPlaceNamesd@resources.qld.gov.au
+QldPlaceNames@resources.qld.gov.au
 
 For further information, please visit:
 
