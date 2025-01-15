@@ -1,5 +1,10 @@
 == Bibliography
 
+[[Place-Names-Ontology]] Place Names Ontology:: Geoscience Australia, _Place Names Ontology_ (2018), https://linked.data.gov.au/def/placenames
+
+[[Geographical-Names-Model]] Geographical Names Model::
+Department of Natural Resources and Mines, Manufacturing, and Regional and Rural Development, _Geographical Names Model_ (2023), https://linked.data.gov.au/def/gn/guidance
+
 [[ADDR2024]] ADDR2024:: Intergovernmental Committee on Surveying & Mapping, _Address Model_ (2024). https://linked.data.gov.au/def/addr
 
 [[ADDR2035-1]] Addressing 2035 Strategy:: Intergovernmental Committee on Surveying and Mapping. _Addressing 2035 Strategy_ (2021). https://www.icsm.gov.au/publications/addressing-2035-strategy
