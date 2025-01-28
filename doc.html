@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="generator" content="Asciidoctor 2.0.16">
+<meta name="generator" content="Asciidoctor 2.0.20">
 <title>Australian Geographical Naming Creation &amp; Maintenance Standard</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
@@ -84,10 +84,10 @@ code{font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;font-weight:400;
 ul,ol,dl{line-height:1.6;margin-bottom:1.25em;list-style-position:outside;font-family:inherit}
 ul,ol{margin-left:1.5em}
 ul li ul,ul li ol{margin-left:1.25em;margin-bottom:0}
-ul.square li ul,ul.circle li ul,ul.disc li ul{list-style:inherit}
-ul.square{list-style-type:square}
 ul.circle{list-style-type:circle}
 ul.disc{list-style-type:disc}
+ul.square{list-style-type:square}
+ul.circle ul:not([class]),ul.disc ul:not([class]),ul.square ul:not([class]){list-style:inherit}
 ol li ul,ol li ol{margin-left:1.25em;margin-bottom:0}
 dl dt{margin-bottom:.3125em;font-weight:bold}
 dl dd{margin-bottom:1.25em}
@@ -193,7 +193,8 @@ body.toc2.toc-right{padding-left:0;padding-right:20em}}
 #content h1>a.link:hover,h2>a.link:hover,h3>a.link:hover,#toctitle>a.link:hover,.sidebarblock>.content>.title>a.link:hover,h4>a.link:hover,h5>a.link:hover,h6>a.link:hover{color:#a53221}
 details,.audioblock,.imageblock,.literalblock,.listingblock,.stemblock,.videoblock{margin-bottom:1.25em}
 details{margin-left:1.25rem}
-details>summary{cursor:pointer;display:block;position:relative;line-height:1.6;margin-bottom:.625rem;-webkit-tap-highlight-color:transparent}
+details>summary{cursor:pointer;display:block;position:relative;line-height:1.6;margin-bottom:.625rem;outline:none;-webkit-tap-highlight-color:transparent}
+details>summary::-webkit-details-marker{display:none}
 details>summary::before{content:"";border:solid transparent;border-left:solid;border-width:.3em 0 .3em .5em;position:absolute;top:.5em;left:-1.25rem;transform:translateX(15%)}
 details[open]>summary::before{border:solid transparent;border-top:solid;border-width:.5em .3em 0;transform:translateY(15%)}
 details>summary::after{content:"";width:1.25rem;height:1em;position:absolute;top:.3em;left:-1.25rem}
@@ -207,13 +208,10 @@ table.tableblock.fit-content>caption.title{white-space:nowrap;width:0}
 .admonitionblock>table td.content{padding-left:1.125em;padding-right:1.25em;border-left:1px solid #dddddf;color:rgba(0,0,0,.6);word-wrap:anywhere}
 .admonitionblock>table td.content>:last-child>:last-child{margin-bottom:0}
 .exampleblock>.content{border:1px solid #e6e6e6;margin-bottom:1.25em;padding:1.25em;background:#fff;border-radius:4px}
-.exampleblock>.content>:first-child{margin-top:0}
-.exampleblock>.content>:last-child{margin-bottom:0}
 .sidebarblock{border:1px solid #dbdbd6;margin-bottom:1.25em;padding:1.25em;background:#f3f3f2;border-radius:4px}
-.sidebarblock>:first-child{margin-top:0}
-.sidebarblock>:last-child{margin-bottom:0}
 .sidebarblock>.content>.title{color:#7a2518;margin-top:0;text-align:center}
-.exampleblock>.content>:last-child>:last-child,.exampleblock>.content .olist>ol>li:last-child>:last-child,.exampleblock>.content .ulist>ul>li:last-child>:last-child,.exampleblock>.content .qlist>ol>li:last-child>:last-child,.sidebarblock>.content>:last-child>:last-child,.sidebarblock>.content .olist>ol>li:last-child>:last-child,.sidebarblock>.content .ulist>ul>li:last-child>:last-child,.sidebarblock>.content .qlist>ol>li:last-child>:last-child{margin-bottom:0}
+.exampleblock>.content>:first-child,.sidebarblock>.content>:first-child{margin-top:0}
+.exampleblock>.content>:last-child,.exampleblock>.content>:last-child>:last-child,.exampleblock>.content .olist>ol>li:last-child>:last-child,.exampleblock>.content .ulist>ul>li:last-child>:last-child,.exampleblock>.content .qlist>ol>li:last-child>:last-child,.sidebarblock>.content>:last-child,.sidebarblock>.content>:last-child>:last-child,.sidebarblock>.content .olist>ol>li:last-child>:last-child,.sidebarblock>.content .ulist>ul>li:last-child>:last-child,.sidebarblock>.content .qlist>ol>li:last-child>:last-child{margin-bottom:0}
 .literalblock pre,.listingblock>.content>pre{border-radius:4px;overflow-x:auto;padding:1em;font-size:.8125em}
 @media screen and (min-width:768px){.literalblock pre,.listingblock>.content>pre{font-size:.90625em}}
 @media screen and (min-width:1280px){.literalblock pre,.listingblock>.content>pre{font-size:1em}}
@@ -235,9 +233,8 @@ pre.prettyprint li:not(:first-child) code[data-lang]::before{display:none}
 table.linenotable{border-collapse:separate;border:0;margin-bottom:0;background:none}
 table.linenotable td[class]{color:inherit;vertical-align:top;padding:0;line-height:inherit;white-space:normal}
 table.linenotable td.code{padding-left:.75em}
-table.linenotable td.linenos{border-right:1px solid;opacity:.35;padding-right:.5em}
-pre.pygments .lineno{border-right:1px solid;opacity:.35;display:inline-block;margin-right:.75em}
-pre.pygments .lineno::before{content:"";margin-right:-.125em}
+table.linenotable td.linenos,pre.pygments .linenos{border-right:1px solid;opacity:.35;padding-right:.5em;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}
+pre.pygments span.linenos{display:inline-block;margin-right:.75em}
 .quoteblock{margin:0 1em 1.25em 1.5em;display:table}
 .quoteblock:not(.excerpt)>.title{margin-left:-1.5em;margin-bottom:.75em}
 .quoteblock blockquote,.quoteblock p{color:rgba(0,0,0,.85);font-size:1.15rem;line-height:1.75;word-spacing:.1em;letter-spacing:0;font-style:italic;text-align:justify}
@@ -274,7 +271,7 @@ table.frame-none>colgroup+*>:first-child>*,table.frame-sides>colgroup+*>:first-c
 table.frame-none>:last-child>:last-child>*,table.frame-sides>:last-child>:last-child>*{border-bottom-width:0}
 table.frame-none>*>tr>:first-child,table.frame-ends>*>tr>:first-child{border-left-width:0}
 table.frame-none>*>tr>:last-child,table.frame-ends>*>tr>:last-child{border-right-width:0}
-table.stripes-all tr,table.stripes-odd tr:nth-of-type(odd),table.stripes-even tr:nth-of-type(even),table.stripes-hover tr:hover{background:#f8f8f7}
+table.stripes-all>*>tr,table.stripes-odd>*>tr:nth-of-type(odd),table.stripes-even>*>tr:nth-of-type(even),table.stripes-hover>*>tr:hover{background:#f8f8f7}
 th.halign-left,td.halign-left{text-align:left}
 th.halign-right,td.halign-right{text-align:right}
 th.halign-center,td.halign-center{text-align:center}
@@ -290,10 +287,11 @@ ol{margin-left:1.75em}
 ul li ol{margin-left:1.5em}
 dl dd{margin-left:1.125em}
 dl dd:last-child,dl dd:last-child>:last-child{margin-bottom:0}
-ol>li p,ul>li p,ul dd,ol dd,.olist .olist,.ulist .ulist,.ulist .olist,.olist .ulist{margin-bottom:.625em}
+li p,ul dd,ol dd,.olist .olist,.ulist .ulist,.ulist .olist,.olist .ulist{margin-bottom:.625em}
 ul.checklist,ul.none,ol.none,ul.no-bullet,ol.no-bullet,ol.unnumbered,ul.unstyled,ol.unstyled{list-style-type:none}
 ul.no-bullet,ol.no-bullet,ol.unnumbered{margin-left:.625em}
 ul.unstyled,ol.unstyled{margin-left:0}
+li>p:empty:only-child::before{content:"";display:inline-block}
 ul.checklist>li>p:first-child{margin-left:-1em}
 ul.checklist>li>p:first-child>.fa-square-o:first-child,ul.checklist>li>p:first-child>.fa-check-square-o:first-child{width:1.25em;font-size:.8em;position:relative;bottom:.125em}
 ul.checklist>li>p:first-child>input[type=checkbox]:first-child{margin-right:.25em}
@@ -336,8 +334,6 @@ sup.footnote a:active,sup.footnoteref a:active{text-decoration:underline}
 #footnotes .footnote a:first-of-type{font-weight:bold;text-decoration:none;margin-left:-1.05em}
 #footnotes .footnote:last-of-type{margin-bottom:0}
 #content #footnotes{margin-top:-.625em;margin-bottom:0;padding:.75em 0}
-.gist .file-data>table{border:0;background:#fff;width:100%;margin-bottom:0}
-.gist .file-data>table td.line-data{width:99%}
 div.unbreakable{page-break-inside:avoid}
 .big{font-size:larger}
 .small{font-size:smaller}
@@ -394,7 +390,7 @@ b.conum *{color:inherit!important}
 dt,th.tableblock,td.content,div.footnote{text-rendering:optimizeLegibility}
 h1,h2,p,td.content,span.alt,summary{letter-spacing:-.01em}
 p strong,td.content strong,div.footnote strong{letter-spacing:-.005em}
-p,blockquote,dt,td.content,span.alt,summary{font-size:1.0625rem}
+p,blockquote,dt,td.content,td.hdlist1,span.alt,summary{font-size:1.0625rem}
 p{margin-bottom:1.25rem}
 .sidebarblock p,.sidebarblock dt,.sidebarblock td.content,p.tableblock{font-size:1em}
 .exampleblock>.content{background:#fffef7;border-color:#e0e0dc;box-shadow:0 1px 4px #e0e0dc}
@@ -447,15 +443,23 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_metadata">2. Metadata</a></li>
 <li><a href="#_preamble">3. Preamble</a>
 <ul class="sectlevel2">
-<li><a href="#_scope">3.1. Scope</a></li>
-<li><a href="#_normative_references">3.2. Normative References</a></li>
-<li><a href="#_terms_definitions">3.3. Terms &amp; Definitions</a></li>
-<li><a href="#_conformance">3.4. Conformance</a></li>
-<li><a href="#_namespaces">3.5. Namespaces</a></li>
+<li><a href="#_foreword">3.1. Foreword</a></li>
+<li><a href="#_scope">3.2. <mark>Scope</mark></a></li>
+<li><a href="#_normative_references">3.3. <mark>Normative References</mark></a></li>
+<li><a href="#_terms_definitions">3.4. <mark>Terms &amp; Definitions</mark></a></li>
+<li><a href="#_conformance">3.5. <mark>Conformance</mark></a></li>
+<li><a href="#_namespaces">3.6. <mark>Namespaces</mark></a></li>
 </ul>
 </li>
 <li><a href="#_introduction">4. Introduction</a></li>
-<li><a href="#_bibliography">5. Bibliography</a></li>
+<li><a href="#_australian_place_naming_principles">5. Australian Place Naming Principles</a>
+<ul class="sectlevel2">
+<li><a href="#_place_naming_across_australia_is_consistent">5.1. Place naming across Australia is consistent</a></li>
+<li><a href="#_place_naming_information_is_accurate_and_accessible">5.2. Place naming information is accurate and accessible</a></li>
+<li><a href="#_place_names_promote_connection_inclusivity_and_the_rights_of_others">5.3. Place names promote connection, inclusivity and the rights of others</a></li>
+</ul>
+</li>
+<li><a href="#_bibliography">6. Bibliography</a></li>
 </ul>
 </div>
 </div>
@@ -464,13 +468,13 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <h2 id="_abstract"><a class="anchor" href="#_abstract"></a>1. Abstract</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>This document specifies how addresses should be assigned and maintained to support Australia’s addressing infrastructure. It intends to help addressing authorities to fulfil custodial responsibilities and enable a consistent national approach to ongoing maintenance, accuracy and quality of addresses.</p>
+<p>This document specifies how place names should be assigned to support safety, cultural sensitivity and inclusivity. It intends to help naming authorities to fulfil custodial responsibilities and enable a consistent national approach to the naming of places.</p>
 </div>
 <div class="paragraph">
-<p>It is intended for use by agencies responsible for addressing, particularly Local Government in Australia. It should also be adhered to by developers where addressing authorities enable address numbering and road naming proposals.</p>
+<p>It is intended for use by agencies responsible for place naming, particularly State and Local Governments in Australia. It should also be adhered to by developers for road naming proposals and other entities assigning names to places in an official capacity, <mark>such as buildings and public infrastructure</mark>.</p>
 </div>
 <div class="paragraph">
-<p>This standard should be used in collaboration with national guidelines held by the Intergovernmental Committee on Surveying and Mapping (ICSM).</p>
+<p><mark>This standard should be used in collaboration with national guidelines held by the Intergovernmental Committee on Surveying and Mapping (ICSM).</mark></p>
 </div>
 </div>
 </div>
@@ -485,16 +489,16 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>IRI</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>https://linked.data.gov.au/def/gn-am</code><br>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>https://linked.data.gov.au/def/gn-cm</code><br>
 (proposed)</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Name</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Address Creation &amp; Maintenance Standard</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Australian Place Naming Principles</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Description</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">How addresses should be assigned and maintained to support Australia’s Geographical Naming infrastructure</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">How place names in Australia should be assigned to support safety, cultural sensitivity and inclusivity</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Created</strong></p></td>
@@ -502,7 +506,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Modified</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">2024-11-05</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2025-01-14</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Issued</strong></p></td>
@@ -510,7 +514,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Creator</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://linked.data.gov.au/org/icsm-addrwg">ICSM&#8217;s Geographical Naming Working Group</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://linked.data.gov.au/org/icsm-pnwg">ICSM&#8217;s Place Names Working Group (PNWG)</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Publisher</strong></p></td>
@@ -518,7 +522,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Provenance</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">This standard was created in 2024 by the ICSM Geographical Naming Working Group after the publication of ISO&#8217;s publication in 2023 of ISO19160-2 Assigning and maintaining addresses for objects in the physical world and in 2024 of ICSM&#8217;s publication of its Address Model. This standard is a profile of the former and instructions in the production of data conformant to the latter.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><mark>This standard was created in 2024 by the ICSM Place Names Working Group after the publication of ISO&#8217;s publication in 2023 of ISO19160-2 Assigning and maintaining addresses for objects in the physical world and in 2024 of ICSM&#8217;s publication of its Address Model. This standard is a profile of the former and instructions in the production of data conformant to the latter.</mark></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Status</strong></p></td>
@@ -530,7 +534,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Code Repository</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://github.com/icsm-au/addr-creation-maintenance" class="bare">https://github.com/icsm-au/addr-creation-maintenance</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://github.com/icsm-au/gn-creation-maintenance" class="bare">https://github.com/icsm-au/gn-creation-maintenance</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>License</strong></p></td>
@@ -548,7 +552,25 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <h2 id="_preamble"><a class="anchor" href="#_preamble"></a>3. Preamble</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="_scope"><a class="anchor" href="#_scope"></a>3.1. Scope</h3>
+<h3 id="_foreword"><a class="anchor" href="#_foreword"></a>3.1. Foreword</h3>
+<div class="paragraph">
+<p>In Australia there is no overarching naming authority. The ICSM PNWG brings together place name authorities from both Australia and New Zealand, working collaboratively to establish modern, inclusive, and consistent practices that reflect the evolving needs and values of our diverse communities. The PNWG has developed the Australian Place Naming Principles to provide a consistent and unified approach to place naming across the country.</p>
+</div>
+<div class="paragraph">
+<p>The principles replace the previous Principles for the Consistent Use of Place Names and are designed to address contemporary community expectations, with a particular focus on safety, cultural sensitivity and inclusivity. It recognises the critical role place naming plays in supporting a range of functions, including economic development, research, conservation, service delivery, and in reflecting the cultural identity and values of Australia.</p>
+</div>
+<div class="paragraph">
+<p>Aligned with the resolutions set out by the United Nations Group of Experts on Geographical Names, the principles adhere to international best practices while supporting Australian government authorities in updating and aligning local place naming policies. This ensures greater effectiveness in public services and better represents the diverse communities across the nation.</p>
+</div>
+<div class="paragraph">
+<p>The PNWG advocates for place naming that is inclusive and reflective of the diversity within our communities. In particular, the group acknowledges the significance of place names in promoting the wider use and appreciation of Aboriginal and Torres Strait Islander languages and cultures.</p>
+</div>
+<div class="paragraph">
+<p>While this document provides valuable guidance, the PNWG recognises that each state and territory in Australia has its own policies and practices. This document does not address the determination of state or territory names and boundaries, or Traditional First Nations Country or language group names and boundaries.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_scope"><a class="anchor" href="#_scope"></a>3.2. <mark>Scope</mark></h3>
 <div class="paragraph">
 <p>This document is a Profile of <a href="#ISO19160-2">ISO 19160-2:2023, Addressing – Part 2: Assigning and maintaining addresses for objects in the physical world</a>.</p>
 </div>
@@ -563,7 +585,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect2">
-<h3 id="_normative_references"><a class="anchor" href="#_normative_references"></a>3.2. Normative References</h3>
+<h3 id="_normative_references"><a class="anchor" href="#_normative_references"></a>3.3. <mark>Normative References</mark></h3>
 <div class="paragraph">
 <p>The following standard is needed for the application of this Australian Profile:</p>
 </div>
@@ -605,7 +627,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect2">
-<h3 id="_terms_definitions"><a class="anchor" href="#_terms_definitions"></a>3.3. Terms &amp; Definitions</h3>
+<h3 id="_terms_definitions"><a class="anchor" href="#_terms_definitions"></a>3.4. <mark>Terms &amp; Definitions</mark></h3>
 <div class="dlist">
 <dl>
 <dt class="hdlist1"><a id="access-point"></a> access point</dt>
@@ -654,24 +676,53 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </dd>
 <dt class="hdlist1"><a id="dual-name"></a> dual name</dt>
 <dd>
-<p>a name that consists of two official names that must be used together, usually one indigenous and one European (e.g. ‘Aoraki/Mount Cook’). SOURCE: <a href="#ANZ4819">ANZ4819</a></p>
+<p>dual name is the approach of assigning two names, with two different cultural origins, to a geographical feature.</p>
 </dd>
 <dt class="hdlist1"><a id="formed"></a> formed</dt>
 <dd>
 <p>in relation to a road, means that it is physically constructed or prepared for passage by vehicles or pedestrians. SOURCE: <a href="#ANZ4819">ANZ4819</a></p>
 </dd>
+<dt class="hdlist1"><a id="gazetteer"></a> gazetteer</dt>
+<dd>
+<p>an authorised compendium of approved place names for a State, Territory or Nation or Nations.</p>
+</dd>
+<dt class="hdlist1"><a id="generic-term"></a> generic term</dt>
+<dd>
+<p>a part of a place name that indicates the type of geographical or topographical feature of a place.
+For example, ‘Park’ is a generic term used in the place name, ‘Karakai Park’, and ‘Bay’ is a generic term used in the place name ‘Botany Bay’.
+The generic term can differ from the object category. For example, a feature can be called ‘Karakai Park’ and have an object category of ‘Reserve’.</p>
+</dd>
 <dt class="hdlist1"><a id="geocode"></a> geocode</dt>
 <dd>
-<p>a point feature for an address indicating a geometry. SOURCE: this standard</p>
+<p>a point feature for an address indicating a geometry. SOURCE: <a href="https://linked.data.gov.au/def/addr-cm/">Address Creation &amp; Maintenance Standard</a></p>
+</dd>
+<dt class="hdlist1"><a id="geographical-feature"></a> geographical feature</dt>
+<dd>
+<p>A feature of (or relating to) the geography to refer to the characteristics of a certain location.</p>
 </dd>
 <dt class="hdlist1"><a id="locality"></a> locality</dt>
 <dd>
-<p>a named geographical area defining a community or area of interest, which may be rural or urban in character, and is usually a suburb in the latter case. SOURCE: <a href="#ANZ4819">ANZ4819</a></p>
+<p><mark>a named geographical area defining a community or area of interest, which may be rural or urban in character, and is usually a suburb in the latter case. SOURCE: <a href="#ANZ4819">ANZ4819</a>.</mark><br>
+commonly referred to as a ‘suburb’ in urban areas, is an administrative area over a defined geographical area, for the creation of valid addresses that can be uniquely and clearly identified.<br>
+<mark><strong>or</strong> use the definition from  the geographic object categories vocab:</mark><br>
+a bounded area distinguished for its community and/or landscape characteristics: in metropolitan areas it is commonly referred to as a ‘suburb’; it provides an official reference point for addressing purposes. SOURCE: <a href="https://linked.data.gov.au/def/go-categories/locality">concept of 'Locality' within the Geographical Object Categories vocabulary</a></p>
 </dd>
 <dt class="hdlist1"><a id="IRI"></a> IRI</dt>
 <dd>
 <p>Internationalized Resource Identifiers, IRIs, are a sequence of characters from the
 Universal Character Set. SOURCE: <a href="#ISO10646">ISO10646</a></p>
+</dd>
+<dt class="hdlist1"><a id="official-names"></a> official name</dt>
+<dd>
+<p>a place name approved by a naming authority and included in gazetteers of the respective jurisdiction(s)</p>
+</dd>
+<dt class="hdlist1"><a id="place"></a> place</dt>
+<dd>
+<p>a location, especially one regarded as an entity and identifiable by name</p>
+</dd>
+<dt class="hdlist1"><a id="place-name"></a> place name</dt>
+<dd>
+<p>an official or unofficial name given by a naming authority or organisation to a place</p>
 </dd>
 <dt class="hdlist1"><a id="preferred-address"></a> preferred address</dt>
 <dd>
@@ -684,6 +735,10 @@ Universal Character Set. SOURCE: <a href="#ISO10646">ISO10646</a></p>
 <dt class="hdlist1"><a id="profile"></a> profile</dt>
 <dd>
 <p>set of one or more base standards or subsets of base standards, and, where applicable, the identification of chosen clauses, classes, options and parameters of those base standards, that are necessary for accomplishing a particular function. SOURCE: <a href="#ISO19160-2">ISO19160-2</a></p>
+</dd>
+<dt class="hdlist1"><a id="road"></a> road</dt>
+<dd>
+<p>any public or private land-based thoroughfare or course navigable by vehicle or foot</p>
 </dd>
 <dt class="hdlist1"><a id="sub-address"></a> sub-address</dt>
 <dd>
@@ -701,11 +756,23 @@ Universal Character Set. SOURCE: <a href="#ISO10646">ISO10646</a></p>
 <dd>
 <p>an address that is assigned with reference to the thoroughfare it is accessed from, for example a road or water feature. SOURCE: this standard</p>
 </dd>
+<dt class="hdlist1"><a id="topographical-feature"></a> topographical feature</dt>
+<dd>
+<p>the physical arrangement and characteristics of geographical features (both ‘natural’ and ‘human constructed’) of an area on the Earth’s surface</p>
+</dd>
+<dt class="hdlist1"><a id="unofficial-names"></a> unofficial names</dt>
+<dd>
+<p>the State, Territory or other naming authority may recognise alternative names within a gazetteer or related databases at their discretion. This may include recorded names, spelling variants, historic names or unapproved names. Collectively, these are referred to as unofficial names</p>
+</dd>
+<dt class="hdlist1"><a id="vocabulary"></a> vocabulary</dt>
+<dd>
+<p>a controlled list, glossary, dictionary of the words used to define a place – its features, type and associations</p>
+</dd>
 </dl>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_conformance"><a class="anchor" href="#_conformance"></a>3.4. Conformance</h3>
+<h3 id="_conformance"><a class="anchor" href="#_conformance"></a>3.5. <mark>Conformance</mark></h3>
 <div class="paragraph">
 <p>Keywords used to signify requirements in this document are those defined by <a href="#RFC2119">RFC2119</a> and they are:</p>
 </div>
@@ -748,7 +815,7 @@ Universal Character Set. SOURCE: <a href="#ISO10646">ISO10646</a></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_namespaces"><a class="anchor" href="#_namespaces"></a>3.5. Namespaces</h3>
+<h3 id="_namespaces"><a class="anchor" href="#_namespaces"></a>3.6. <mark>Namespaces</mark></h3>
 <div class="paragraph">
 <p>Namespaces, in this document&#8217;s context, are managed <a href="#IRI">IRIs</a> which allow further IRIs to be created within their scope. Namespaces are allocated to macro data objects and provide IRIs for all the micro data objects within that object.</p>
 </div>
@@ -785,14 +852,14 @@ Universal Character Set. SOURCE: <a href="#ISO10646">ISO10646</a></p>
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code><strong>addr</strong></code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code><strong>+https://linked.data.gov.au/def/addr/+</strong></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>addr</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>https://linked.data.gov.au/def/addr/</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#ADDR2024">ICSM&#8217;s  Address Model</a></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code><strong>addrcm</strong></code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code><strong>+https://linked.data.gov.au/def/addrcm/+</strong></code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>This Document</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>addrcm</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>https://linked.data.gov.au/def/addr-cm/</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://linked.data.gov.au/def/addr-cm/">Address Creation &amp; Maintenance Standard</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>addreq</code></p></td>
@@ -828,6 +895,16 @@ Universal Character Set. SOURCE: <a href="#ISO10646">ISO10646</a></p>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>geo</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>http://www.opengis.net/ont/geosparql#</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://docs.ogc.org/is/22-047r1/22-047r1.html">OGC GeoSPARQL</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>gna</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>https://vocabs.gsq.digital/v/vocab/defn:gn-affix</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://vocabs.gsq.digital/v/vocab/defn:gn-affix">Geographical Name Affix vocabulary</a> <mark>(update to <a href="https://linked.data.gov.au/def/gn-affix" class="bare">https://linked.data.gov.au/def/gn-affix</a> once registered with AGLDWG)</mark></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>gncm</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>https://linked.data.gov.au/def/gn-cm/</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>This document</strong></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>gt</code></p></td>
@@ -907,10 +984,332 @@ Universal Character Set. SOURCE: <a href="#ISO10646">ISO10646</a></p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_bibliography"><a class="anchor" href="#_bibliography"></a>5. Bibliography</h2>
+<h2 id="_australian_place_naming_principles"><a class="anchor" href="#_australian_place_naming_principles"></a>5. Australian Place Naming Principles</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_place_naming_across_australia_is_consistent"><a class="anchor" href="#_place_naming_across_australia_is_consistent"></a>5.1. Place naming across Australia is consistent</h3>
+<div class="paragraph">
+<p>All geographical features and areas, roads and localities in Australia should be named in a
+consistent way for the effective delivery of services and to enhance community cohesion.
+Jurisdictions can name other places as required by their legislation and policies.</p>
+</div>
+<div class="sect3">
+<h4 id="_language"><a class="anchor" href="#_language"></a>5.1.1. Language</h4>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">All place names should</dt>
+<dd>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Be written in standard Australian English or, in an appropriate format for Aboriginal or
+Torres Strait Islander languages.</p>
+</li>
+<li>
+<p>Use the standard Australia alphabet.</p>
+</li>
+<li>
+<p>Have consistent spelling for names derived from the same source, e.g. Matodoro ridge
+and Matodoro trail.</p>
+</li>
+<li>
+<p>Be easy to pronounce and spell.</p>
+</li>
+<li>
+<p>Exceptions to the above may be appropriate for place names derived from different
+cultures Aboriginal and Torres Strait Islander languages.</p>
+</li>
+</ol>
+</div>
+</dd>
+<dt class="hdlist1">Place names should not</dt>
+<dd>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Contain numbers, roman numerals, punctuation, abbreviations, acronyms or similar.</p>
+</li>
+<li>
+<p>Start with the word ‘the’.</p>
+</li>
+<li>
+<p>Contain cardinal indicators or qualifying terms, e.g. North, Southern, Upper, New.<br>
+Please refer to the <mark><a href="https://vocabs.gsq.digital/v/vocab/defn:gn-affix">affixes vocabulary</a> (replace link with <a href="https://linked.data.gov.au/def/gn-affix" class="bare">https://linked.data.gov.au/def/gn-affix</a> once registered with AGLDWG)</mark></p>
+</li>
+</ol>
+</div>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_place_naming_information_is_accurate_and_accessible"><a class="anchor" href="#_place_naming_information_is_accurate_and_accessible"></a>5.2. Place naming information is accurate and accessible</h3>
+<div class="paragraph">
+<p>As place names are a key descriptor in databases supporting a broad range of services,
+including emergency services, place naming information should be accurate, timely and readily
+accessible.</p>
+</div>
+<div class="sect3">
+<h4 id="_accessible"><a class="anchor" href="#_accessible"></a>5.2.1. Accessible</h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Place names must be assigned by a relevant naming authority in each State or
+Territory.</p>
+</li>
+<li>
+<p>Published in a gazetteer,</p>
+</li>
+<li>
+<p>Enduring, changes to existing names should only be considered when there is a
+compelling reason to do so.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_unique"><a class="anchor" href="#_unique"></a>5.2.2. Unique</h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Avoiding duplication, a place name is a duplicate if it is identical with, or similar
+(in spelling or pronunciation) to another place name of the same feature type.</p>
+</li>
+<li>
+<p>Uniqueness is particularly important for names forming a component of a street
+address, such as road and locality names. A road name, regardless of road type,
+should not duplicate an existing road name in the same locality, an adjoining
+locality, or in the same local government area. A new locality name should not
+duplicate any other locality name in Australia.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_clearly_described"><a class="anchor" href="#_clearly_described"></a>5.2.3. Clearly described</h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>A place name should have a clear description, that includes the extent of the
+feature it represents. The description should as much as possible align with the
+place names vocabulary (provide link).</p>
+</li>
+<li>
+<p>Information to be captured includes the type of feature being named, eg, river,
+road or lake.</p>
+</li>
+<li>
+<p>The description may also have associated origin information, including the
+reasoning for the name, any attached stories or background. For Aboriginal and
+Torres Strait Islander names, a recording of the pronunciation is encouraged.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_places_which_cross_state_territory_jurisdictional_boundaries"><a class="anchor" href="#_places_which_cross_state_territory_jurisdictional_boundaries"></a>5.2.4. Places which cross State / Territory / jurisdictional boundaries</h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The name for any feature that crosses a State / Territory / jurisdictional boundary
+should be the same on both sides of that boundary and be decided by consensus
+with all responsible naming authorities.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_offshore_places"><a class="anchor" href="#_offshore_places"></a>5.2.5. Offshore Places</h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>States and Territories are responsible for the naming of island, water and
+undersea places within their legislated Coastal Waters and internal waters. The
+Australian Hydrographic Office should be advised of proposed, new and amended
+offshore place names for charting purposes.</p>
+</li>
+<li>
+<p>Refer to the Australian Hydrographic Office for advice on the appropriate naming
+authority for offshore place names outside of Coastal Waters.</p>
+</li>
+<li>
+<p>Limits of oceans and seas – as per ICSM Resolution R00/11/06, May 2001 –
+Changes to limits and nomenclature of the Oceans and Seas surrounding Australia
+require the approval of the ICSM before being forwarded to the International
+Hydrographic Organisation.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_road_names"><a class="anchor" href="#_road_names"></a>5.2.6. Road names</h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The naming of roads should follow all principles in this document and:</p>
+</li>
+<li>
+<p>All built public and private roads should be named,</p>
+</li>
+<li>
+<p>A road should only have one name, other than part of a highway that is assigned
+a local name where it passes through a town or city. This includes where a road
+crosses administrative boundaries.</p>
+</li>
+<li>
+<p>A road name should apply from one end of the road to the other i.e. the point
+where the road finishes or intersects with another road or roads.</p>
+</li>
+<li>
+<p>A road name should include a road type, please refer to the road types
+vocabulary, e.g. Smith Street where street is the road type.</p>
+</li>
+<li>
+<p>When a road is changed and it is no longer continuous, new names should be
+applied as appropriate to avoid confusion.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_place_names_promote_connection_inclusivity_and_the_rights_of_others"><a class="anchor" href="#_place_names_promote_connection_inclusivity_and_the_rights_of_others"></a>5.3. Place names promote connection, inclusivity and the rights of others</h3>
+<div class="paragraph">
+<p>Place names promoting diversity and cultural inclusivity are encouraged. Aboriginal and Torres
+Strait Islander names in particular play an important role in reawakening language and culture.
+This may include the reinstating of Traditional place names, or the creation of new names
+derived from Aboriginal and Torres Strait Islander people&#8217;s diverse languages.</p>
+</div>
+<div class="sect3">
+<h4 id="_connection"><a class="anchor" href="#_connection"></a>5.3.1. Connection</h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Place names should have a connection to the feature or area they represent.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_aboriginal_and_torres_strait_islander_place_names"><a class="anchor" href="#_aboriginal_and_torres_strait_islander_place_names"></a>5.3.2. Aboriginal and Torres Strait Islander Place Names</h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Any place naming action should seek permission from the relevant Aboriginal
+and Torres Strait Islander peoples as the custodians of their language and culture,
+with consideration to the right to control their use.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_dual_naming"><a class="anchor" href="#_dual_naming"></a>5.3.3. Dual Naming</h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Dual names are a way to assign two names, with two different cultural origins, to
+a geographical feature.</p>
+</li>
+<li>
+<p>Dual names should not be applied to roads or localities.</p>
+</li>
+<li>
+<p>Both names should be displayed on official maps and signage.</p>
+</li>
+<li>
+<p>Dual names should be represented by name, space, forward slash (/), space,
+name e.g. Uluru / Ayers Rock.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_commemorative_names"><a class="anchor" href="#_commemorative_names"></a>5.3.4. Commemorative Names</h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Place names can commemorate a person(s) or significant event and should
+have a connection to the place.</p>
+</li>
+<li>
+<p>When commemorating a person(s) the name must be applied posthumously.
+Acts of bravery, community service and exceptional accomplishments are typical
+grounds for commemorating a person through place naming.</p>
+</li>
+<li>
+<p>The place name should not include titles, honorifics or postnominals. For
+example: John Smith Park not John Smith AO Park, or Jane Smith Park not Dr Jane
+Smith Park.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_unacceptable_names"><a class="anchor" href="#_unacceptable_names"></a>5.3.5. Unacceptable names</h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Place names must not be derogatory, discriminatory, frivolous, offensive, or in
+poor taste.</p>
+</li>
+<li>
+<p>Contrived names should not be used, e.g combining two family names to create
+a single place name.</p>
+</li>
+<li>
+<p>Place names should not be perceived as promoting commercial, or business
+interests.</p>
+</li>
+<li>
+<p>Place names should not include words protected or restricted by
+Commonwealth or other legislation, unless the appropriate approvals are sought,
+e.g the term ANZAC, Royal and Defence words.</p>
+</li>
+<li>
+<p>Place names should not infringe on any established or implied rights, e.g.
+copyright, trademarks and Indigenous Cultural and Intellectual Property (ICIP).</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_consultation"><a class="anchor" href="#_consultation"></a>5.3.6. Consultation</h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The impacted community or communities should be consulted for all new or
+altered place names.</p>
+</li>
+<li>
+<p>If using Aboriginal or Torres Strait Islander language in a place name, it is
+important to engage in culturally appropriate consultation to obtain consent to use
+the name and record the meaning or story associated with the name.</p>
+</li>
+<li>
+<p>Consent may also be required to capture supporting information, including
+historical background, spelling, information on pronunciation, origins, intellectual
+property, and cultural heritage.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_bibliography"><a class="anchor" href="#_bibliography"></a>6. Bibliography</h2>
 <div class="sectionbody">
 <div class="dlist">
 <dl>
+<dt class="hdlist1"><a id="Place-Names-Ontology"></a> Place Names Ontology</dt>
+<dd>
+<p>Geoscience Australia, <em>Place Names Ontology</em> (2018), <a href="https://linked.data.gov.au/def/placenames" class="bare">https://linked.data.gov.au/def/placenames</a></p>
+</dd>
+<dt class="hdlist1"><a id="Geographical-Names-Model"></a> Geographical Names Model</dt>
+<dd>
+<p>Department of Natural Resources and Mines, Manufacturing, and Regional and Rural Development, <em>Geographical Names Model</em> (2023), <a href="https://linked.data.gov.au/def/gn/guidance" class="bare">https://linked.data.gov.au/def/gn/guidance</a></p>
+</dd>
 <dt class="hdlist1"><a id="ADDR2024"></a> ADDR2024</dt>
 <dd>
 <p>Intergovernmental Committee on Surveying &amp; Mapping, <em>Address Model</em> (2024). <a href="https://linked.data.gov.au/def/addr" class="bare">https://linked.data.gov.au/def/addr</a></p>
@@ -970,7 +1369,7 @@ Universal Character Set. SOURCE: <a href="#ISO10646">ISO10646</a></p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2024-11-18 00:06:13 UTC
+Last updated 2025-01-28 05:23:22 UTC
 </div>
 </div>
 </body>
