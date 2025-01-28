@@ -1,6 +1,17 @@
 == Preamble
 
-=== Scope
+=== Foreword
+In Australia there is no overarching naming authority. The ICSM PNWG brings together place name authorities from both Australia and New Zealand, working collaboratively to establish modern, inclusive, and consistent practices that reflect the evolving needs and values of our diverse communities. The PNWG has developed the Australian Place Naming Principles to provide a consistent and unified approach to place naming across the country.
+
+The principles replace the previous Principles for the Consistent Use of Place Names and are designed to address contemporary community expectations, with a particular focus on safety, cultural sensitivity and inclusivity. It recognises the critical role place naming plays in supporting a range of functions, including economic development, research, conservation, service delivery, and in reflecting the cultural identity and values of Australia.
+
+Aligned with the resolutions set out by the United Nations Group of Experts on Geographical Names, the principles adhere to international best practices while supporting Australian government authorities in updating and aligning local place naming policies. This ensures greater effectiveness in public services and better represents the diverse communities across the nation.
+
+The PNWG advocates for place naming that is inclusive and reflective of the diversity within our communities. In particular, the group acknowledges the significance of place names in promoting the wider use and appreciation of Aboriginal and Torres Strait Islander languages and cultures.
+
+While this document provides valuable guidance, the PNWG recognises that each state and territory in Australia has its own policies and practices. This document does not address the determination of state or territory names and boundaries, or Traditional First Nations Country or language group names and boundaries.
+
+=== #Scope#
 
 This document is a Profile of <<ISO19160-2, ISO 19160-2:2023, Addressing – Part 2: Assigning and maintaining addresses for objects in the physical world>>.
 
@@ -10,7 +21,7 @@ This document focuses on assigning and maintaining addresses that allow the unam
 
 This standard provides requirements for addressing authorities to assign addresses, record the related information, and signage related to addressing components.
 
-=== Normative References
+=== #Normative References#
 
 The following standard is needed for the application of this Australian Profile:
 
@@ -27,7 +38,7 @@ The following document defines the addressing model used for address records:
 
 * <<ADDR2024, ICSM's Address Model>>
 
-=== Terms & Definitions
+=== #Terms & Definitions#
 
 [[access-point]] access point:: The position along a thoroughfare (road or water feature) where the public would normally access an address site. SOURCE: this standard
 
@@ -51,22 +62,41 @@ The following document defines the addressing model used for address records:
 
 [[alternative-name]] alternative name:: a name that is an alternative name to another name for the same feature. SOURCE: <<ANZ4819, ANZ4819>>
 
-[[dual-name]] dual name:: a name that consists of two official names that must be used together, usually one indigenous and one European (e.g. ‘Aoraki/Mount Cook’). SOURCE: <<ANZ4819, ANZ4819>>
+[[dual-name]] dual name:: dual name is the approach of assigning two names, with two different cultural origins, to a geographical feature.
 
 [[formed]] formed:: in relation to a road, means that it is physically constructed or prepared for passage by vehicles or pedestrians. SOURCE: <<ANZ4819, ANZ4819>>
 
-[[geocode]] geocode:: a point feature for an address indicating a geometry. SOURCE: this standard
+[[gazetteer]] gazetteer:: an authorised compendium of approved place names for a State, Territory or Nation or Nations.
 
-[[locality]] locality:: a named geographical area defining a community or area of interest, which may be rural or urban in character, and is usually a suburb in the latter case. SOURCE: <<ANZ4819, ANZ4819>>
+[[generic-term]] generic term:: a part of a place name that indicates the type of geographical or topographical feature of a place.
+For example, ‘Park’ is a generic term used in the place name, ‘Karakai Park’, and ‘Bay’ is a generic term used in the place name ‘Botany Bay’.
+The generic term can differ from the object category. For example, a feature can be called ‘Karakai Park’ and have an object category of ‘Reserve’.
+
+[[geocode]] geocode:: a point feature for an address indicating a geometry. SOURCE: https://linked.data.gov.au/def/addr-cm/[Address Creation & Maintenance Standard]
+
+[[geographical-feature]] geographical feature:: A feature of (or relating to) the geography to refer to the characteristics of a certain location.
+
+[[locality]] locality:: #a named geographical area defining a community or area of interest, which may be rural or urban in character, and is usually a suburb in the latter case. SOURCE: <<ANZ4819, ANZ4819>>.# +
+commonly referred to as a ‘suburb’ in urban areas, is an administrative area over a defined geographical area, for the creation of valid addresses that can be uniquely and clearly identified. +
+#*or* use the definition from  the geographic object categories vocab:# +
+a bounded area distinguished for its community and/or landscape characteristics: in metropolitan areas it is commonly referred to as a ‘suburb’; it provides an official reference point for addressing purposes. SOURCE: https://linked.data.gov.au/def/go-categories/locality[concept of 'Locality' within the Geographical Object Categories vocabulary]
 
 [[IRI]] IRI:: Internationalized Resource Identifiers, IRIs, are a sequence of characters from the
    Universal Character Set. SOURCE: <<ISO10646, ISO10646>>
+
+[[official-names]] official name:: a place name approved by a naming authority and included in gazetteers of the respective jurisdiction(s)
+
+[[place]] place:: a location, especially one regarded as an entity and identifiable by name
+
+[[place-name]] place name:: an official or unofficial name given by a naming authority or organisation to a place
 
 [[preferred-address]] preferred address:: the assigned address that is preferred for usage and refers to the main access point to an address site. SOURCE: this standard
 
 [[primary-address-site]] primary address site:: an address site that is not contained within another address site. It may contain a sub-address site. SOURCE: <<ANZ4819, ANZ4819>>
 
 [[profile]] profile:: set of one or more base standards or subsets of base standards, and, where applicable, the identification of chosen clauses, classes, options and parameters of those base standards, that are necessary for accomplishing a particular function. SOURCE: <<ISO19160-2, ISO19160-2>>
+
+[[road]] road:: any public or private land-based thoroughfare or course navigable by vehicle or foot
 
 [[sub-address]] sub-address:: an address number element that refers to a sub-address site. SOURCE: This standard>>
 
@@ -76,7 +106,13 @@ The following document defines the addressing model used for address records:
 
 [[thoroughfare-address]] thoroughfare address:: an address that is assigned with reference to the thoroughfare it is accessed from, for example a road or water feature. SOURCE: this standard
 
-=== Conformance
+[[topographical-feature]] topographical feature:: the physical arrangement and characteristics of geographical features (both ‘natural’ and ‘human constructed’) of an area on the Earth’s surface
+
+[[unofficial-names]] unofficial names:: the State, Territory or other naming authority may recognise alternative names within a gazetteer or related databases at their discretion. This may include recorded names, spelling variants, historic names or unapproved names. Collectively, these are referred to as unofficial names
+
+[[vocabulary]] vocabulary:: a controlled list, glossary, dictionary of the words used to define a place – its features, type and associations
+
+=== #Conformance#
 
 Keywords used to signify requirements in this document are those defined by <<RFC2119, RFC2119>> and they are:
 
@@ -94,7 +130,7 @@ For process and information to be conformant with this standard, the imperatives
 
 Address information created following processes outlined in this standard _MUST_ conform to the <<ADDR2024, ICSM Address Model>> with conformance to it tested as per it's https://linked.data.gov.au/def/addr#AnnexB[Annex B: Validation] section.
 
-=== Namespaces
+=== #Namespaces#
 
 Namespaces, in this document's context, are managed <<IRI, IRIs>> which allow further IRIs to be created within their scope. Namespaces are allocated to macro data objects and provide IRIs for all the micro data objects within that object.
 
@@ -114,8 +150,8 @@ The prefixed namespaces used in this document are:
 |===
 |Prefix | Namespace | Description
 
-| `*addr*` | `*+https://linked.data.gov.au/def/addr/+*` | <<ADDR2024, ICSM's  Address Model>>
-| `*addrcm*` | `*+https://linked.data.gov.au/def/addrcm/+*` | *This Document*
+| `addr` | `+https://linked.data.gov.au/def/addr/+` | <<ADDR2024, ICSM's  Address Model>>
+| `addrcm` | `+https://linked.data.gov.au/def/addr-cm/+` | https://linked.data.gov.au/def/addr-cm/[Address Creation & Maintenance Standard]
 | `addreq` | `+https://linked.data.gov.au/def/addrcm-req/+` | https://linked.data.gov.au/def/addrcm-req[Address Creation & Maintenance Requirements Vocabulary]
 | `als` | `+https://linked.data.gov.au/def/address-lifecycle-stage-type/+` | https://linked.data.gov.au/def/lifecycle-stage-types[Address Lifecycle Stage Types vocabulary]
 | `apt` | `+https://linked.data.gov.au/def/address-part-type/+` | https://linked.data.gov.au/def/addr-part-types[Address Part Types vocabulary]
@@ -123,6 +159,8 @@ The prefixed namespaces used in this document are:
 | `cn` | `+https://linked.data.gov.au/def/cn/+` | https://linked.data.gov.au/def/cn[Compound Naming Model]
 | `ex` | `+http://example.com/+` | Generic examples
 | `geo` | `+http://www.opengis.net/ont/geosparql#+` | https://docs.ogc.org/is/22-047r1/22-047r1.html[OGC GeoSPARQL]
+| `gna` | `+https://vocabs.gsq.digital/v/vocab/defn:gn-affix+` | https://vocabs.gsq.digital/v/vocab/defn:gn-affix[Geographical Name Affix vocabulary] #(update to https://linked.data.gov.au/def/gn-affix once registered with AGLDWG)#
+| `gncm` | `+https://linked.data.gov.au/def/gn-cm/+` | *This document*
 | `gt` | `+http://www.opengis.net/ont/geocode-types/+` | https://linked.data.gov.au/def/geocode-types[Geocode types vocabulary]
 | `ls` | `+https://linked.data.gov.au/def/lifecycle/+` | https://linked.data.gov.au/def/lifecycle[Lifecycle Model]
 | `owl` | `+http://www.w3.org/2002/07/owl#+` | https://www.w3.org/TR/owl2-overview/[Web Ontology Language ontology]
