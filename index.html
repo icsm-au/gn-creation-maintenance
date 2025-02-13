@@ -441,13 +441,16 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p><em>This proposed standard is based on the draft <a href="https://icsm-au.github.io/addr-creation-maintenance/doc.html">Australian Addressing Creation &amp; Maintenance Standard</a> with which it will be aligned and cross-referenced.</em></p>
+<p>This (proposed) standard codifies roles and tasks involved in the creation and maintenance of Geographical Names in Australia and New Zealand under the authority of the <a href="https://www.icsm.gov.au/">Intergovernmental Committee on Surveying &amp; Mapping</a>.</p>
 </div>
 <div class="paragraph">
 <p><em>This proposed standard will be dependent on the <a href="https://linked.data.gov.au/def/gn">Geographical Names Model</a> when it&#8217;s approved as a standard, much like the Addressing Creation &amp; Maintenance Standard is dependent on the <a href="https://linked.data.gov.au/def/addr">Address Model</a>.</em></p>
 </div>
 <div class="paragraph">
-<p>This proposed standard is rendered on, as it is being developed, at:</p>
+<p><em>This proposed standard is based on the draft <a href="https://linked.data.gov.au/def/addr-cm">Addressing Creation &amp; Maintenance Standard</a> with which it will be aligned and cross-referenced.</em></p>
+</div>
+<div class="paragraph">
+<p>This repository contains the source code for the standard and the standard document is rendered from these files online at:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -470,7 +473,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Raising concerns/ideas within ICSM&#8217;s Place Names Working Group</p>
+<p>Raising concerns/ideas within ICSM&#8217;s Geographical Names Working Group</p>
 </li>
 <li>
 <p>Creating Issue tickets within this repository&#8217;s Issue Tracker</p>
@@ -544,10 +547,24 @@ Queensland Government<br>
 </div>
 </div>
 </div>
+<div class="sect1">
+<h2 id="_document_generation">Document generation</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This document is developed using the <a href="https://asciidoc.org/">ASCIIDOC</a> document system used for many <a href="https://www.ogc.org/">OGC</a> and <a href="https://www.iso.org/home.html">ISO</a> standards. It essentially builds HTML or PDF documents from a series of text files (ending in <code>.adoc</code>), images and so, with certain styling conventions.</p>
+</div>
+<div class="paragraph">
+<p>This repository automatically builds this document from the source files in the <code>document/</code> folder using the <a href="https://asciidoctor.org/">ASCIIDoctor</a> tool that it integrated into a GitHub Action, meaning the document is rebuild with every error-free update to the source files here.</p>
+</div>
+<div class="paragraph">
+<p>The auto-built document is online at <a href="https://icsm-au.github.io/addr-creation-maintenance/doc.html" class="bare">https://icsm-au.github.io/addr-creation-maintenance/doc.html</a>.</p>
+</div>
+</div>
+</div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2025-01-28 05:23:22 UTC
+Last updated 2025-02-13 06:24:08 UTC
 </div>
 </div>
 </body>
